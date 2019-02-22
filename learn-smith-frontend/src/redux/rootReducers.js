@@ -1,5 +1,6 @@
-import { createReducer } from "redux-starter-kit";
+import { combineReducers } from "redux-starter-kit";
+import { counterReducer } from "./counterreducer";
 
-const rootReducer = createReducer(0, {});
+const rootReducer = combineReducers({ counter: counterReducer });
 
 export default rootReducer;

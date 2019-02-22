@@ -1,6 +1,10 @@
 import { configureStore } from "redux-starter-kit";
 import rootReducer from "./rootReducers";
 
-const store = configureStore({ reducer: rootReducer });
+const preloadedState = {
+  counter: 0
+};
+
+const store = configureStore({ reducer: rootReducer, preloadedState });
 
 export default store;
