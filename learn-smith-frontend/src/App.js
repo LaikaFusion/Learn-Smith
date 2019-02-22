@@ -5,7 +5,12 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    return <div className="App">{this.props.counter}</div>;
+    return (
+      <div className="App">
+        {this.props.counter}
+        <button onClick={() => this.props.increment(1)}>aaa</button>
+      </div>
+    );
   }
 }
 
