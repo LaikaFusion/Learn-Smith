@@ -7,11 +7,22 @@
   padding: 1em;
   font-size: 24px;
 }
+.resources {
+  grid-area: resources;
+}
+.customers {
+  grid-area: customers;
+}
+.forges {
+  grid-area: forges;
+}
 .App {
   height: 100%;
   text-align: center;
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 3em 90%;
-  grid-template-areas: "topBar";
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 3em 30% auto;
+  grid-template-areas: "topBar topBar"
+  "resources customers"
+  "resources forges";
 }
