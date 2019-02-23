@@ -12,11 +12,20 @@ class App extends Component {
         {/* {this.props.counter}
         <button onClick={() => this.props.increment(1)}>aaa</button> */}
         <div className="topBar">TopBar</div>
-        <div className="resources">
-          <Card>Resources</Card>
+        <div className="gridContainer">
+          <div className="resources">
+            <Card>Resources</Card>
+          </div>
+          <div className="inventory">
+            <Card>Inventory</Card>
+          </div>
+          <div className="customers">
+            <Card>Customers</Card>
+          </div>
+          <div className="forges">
+            <Card>forge</Card>
+          </div>
         </div>
-        <div className="customers"><Card>Customers</Card></div>
-        <div className="forges"><Card>forge</Card></div>
       </div>
     );
   }
