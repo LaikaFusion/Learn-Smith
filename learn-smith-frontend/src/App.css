@@ -4,7 +4,7 @@
   color: white;
   display: flex;
   align-items: center;
-  padding: 1em;
+  padding: .5em;
   font-size: 24px;
 }
 .resources {
@@ -16,13 +16,27 @@
 .forges {
   grid-area: forges;
 }
-.App {
+.card {
+  padding: .5em;
+  background-color:lightgray;
   height: 100%;
-  text-align: center;
+  width: 100%;
+  box-sizing:border-box;
+}
+.gridContainer{
   display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-rows: 3em 30% auto;
-  grid-template-areas: "topBar topBar"
+  grid-gap: 1em;
+  grid-template-columns: 30% auto;
+  grid-template-rows: 30% auto;
+  grid-template-areas:
   "resources customers"
   "resources forges";
+}
+.App {
+  box-sizing:border-box;
+  height: 100%;
+  text-align: center;
+  display:flex;
+  flex-direction:column
+  
 }
