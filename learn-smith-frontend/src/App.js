@@ -4,13 +4,14 @@ import { increment, decrement } from "./redux/counterreducer";
 
 import "./App.css";
 import MainPage from "./components/MainPage";
+import Alphabetical from "./components/Alphabetical";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      display: "main"
+      display: "alpha"
     };
   }
 
@@ -21,14 +22,18 @@ class App extends Component {
         {/* {this.props.counter}
         <button onClick={() => this.props.increment(1)}>aaa</button> */}
         <div className="topBar">TopBar</div>
-        {(() => {
-          switch (display) {
-            case "main":
-              return <MainPage />;
-            default:
-              return <div> ERROR </div>;
-          }
-        })()}
+        <div className="lowerPage">
+          {(() => {
+            switch (display) {
+              case "main":
+                return <MainPage />;
+              case "alpha":
+                return <Alphabetical />;
+              default:
+                return <div> ERROR </div>;
+            }
+          })()}
+        </div>
       </div>
     );
   }
