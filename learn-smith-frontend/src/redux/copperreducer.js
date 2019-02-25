@@ -5,7 +5,12 @@ const copperdecrement = createAction("copper/decrement");
 
 const copperReducer = createReducer(0, {
   [copperincrement]: (state, action) => state + action.payload,
-  [copperdecrement]: (state, action) => state - action.payload
+  [copperdecrement]: (state, action) => {
+    if (state > 0) {
+      return state - action.payload;
+    }
+    return 0;
+  }
 });
 
 export { copperReducer, copperincrement, copperdecrement };

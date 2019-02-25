@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { woodincrement, wooddecrement } from "../redux/woodreducer";
 import Card from "./Card";
 
 const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ranLetter = () => Math.floor(Math.random() * 25);
 
-function Alphabetical() {
+function Alphabetical(props) {
+  const { wood, woodincrement, wooddecrement } = props;
   const [firstLetter, setFirstLetter] = useState("");
   const [secondLetter, setSecondLetter] = useState("");
   const newQuestion = () => {
@@ -18,10 +22,14 @@ function Alphabetical() {
   };
   const checkAnswer = ans => {
     if (ans === "left" && firstLetter < secondLetter) {
+      woodincrement(1);
       console.log(`Correct`);
     } else if (ans === "right" && secondLetter < firstLetter) {
+      woodincrement(1);
+
       console.log(`Correct`);
     } else {
+      wooddecrement(1);
       console.log("Wrong");
     }
     newQuestion();
@@ -31,6 +39,7 @@ function Alphabetical() {
   }, []);
   return (
     <Card>
+      <div className="resourceDisplay">{wood}</div>
       <div className="question">Is</div>
       <div className="letter">{alphabetArray[firstLetter]}</div>
       <div className="question">left or right of</div>
@@ -55,4 +64,14 @@ function Alphabetical() {
     </Card>
   );
 }
-export default Alphabetical;
+Alphabetical.propTypes = {
+  wood: PropTypes.number.isRequired
+};
+const mapStateToProps = state => ({
+  wood: state.wood
+});
+
+export default connect(
+  mapStateToProps,
+  { woodincrement, wooddecrement }
+)(Alphabetical);

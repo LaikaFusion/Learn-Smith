@@ -5,7 +5,12 @@ const bronzedecrement = createAction("bronze/decrement");
 
 const bronzeReducer = createReducer(0, {
   [bronzeincrement]: (state, action) => state + action.payload,
-  [bronzedecrement]: (state, action) => state - action.payload
+  [bronzedecrement]: (state, action) => {
+    if (state > 0) {
+      return state - action.payload;
+    }
+    return 0;
+  }
 });
 
 export { bronzeReducer, bronzeincrement, bronzedecrement };
