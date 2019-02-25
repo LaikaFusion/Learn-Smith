@@ -8,9 +8,11 @@ const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Alphabetical(props) {
-  const { wood, woodincrement, wooddecrement } = props;
+  const { wood } = props;
   const [firstLetter, setFirstLetter] = useState("");
   const [secondLetter, setSecondLetter] = useState("");
+  const [answer, setAnswer] = useState("");
+
   const newQuestion = () => {
     const letterone = ranLetter();
     let lettertwo = ranLetter();
@@ -23,15 +25,17 @@ function Alphabetical(props) {
   const checkAnswer = ans => {
     if (ans === "left" && firstLetter < secondLetter) {
       woodincrement(1);
-      console.log(`Correct`);
+      setAnswer(`Correct`);
     } else if (ans === "right" && secondLetter < firstLetter) {
       woodincrement(1);
-
-      console.log(`Correct`);
+      setAnswer(`Correct`);
     } else {
       wooddecrement(1);
-      console.log("Wrong");
+      setAnswer(`Wrong`);
     }
+    setTimeout(() => {
+      setAnswer(``);
+    }, 1000);
     newQuestion();
   };
   useEffect(() => {
@@ -39,7 +43,7 @@ function Alphabetical(props) {
   }, []);
   return (
     <Card>
-      <div className="resourceDisplay">{wood}</div>
+      <div className="resourceDisplay">Wood: {wood}</div>
       <div className="question">Is</div>
       <div className="letter">{alphabetArray[firstLetter]}</div>
       <div className="question">left or right of</div>
@@ -61,6 +65,7 @@ function Alphabetical(props) {
         type="button"
         id="rightbutton"
       />
+      <div className="answer">{answer}</div>
     </Card>
   );
 }
