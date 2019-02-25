@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { woodincrement, wooddecrement } from "../redux/woodreducer";
 import Card from "./Card";
+import Game from "./Game";
 
 const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ranLetter = () => Math.floor(Math.random() * 25);
@@ -43,43 +44,36 @@ function Alphabetical(props) {
   }, []);
   return (
     <Card>
-      <div className="resourceDisplay">Wood: {wood}</div>
-      <div
-        role="button"
-        onClick={changeDisplay}
-        onKeyPress={changeDisplay}
-        className="backButton"
-        tabIndex="0"
-      >
-        X
-      </div>
-      <div className="question">Is</div>
-      <div className="letter">{alphabetArray[firstLetter]}</div>
-      <div className="question">left or right of</div>
-      <div className="letter">{alphabetArray[secondLetter]}</div>
-      <div className="question">in the alphabet?</div>
-      <input
-        onClick={() => {
-          checkAnswer("left");
-        }}
-        value="Left"
-        type="button"
-        id="leftbutton"
-      />
-      <input
-        onClick={() => {
-          checkAnswer("right");
-        }}
-        value="Right"
-        type="button"
-        id="rightbutton"
-      />
-      <div className="answer">{answer}</div>
+      <Game resource={wood} resourceType="Wood" changeDisplay={changeDisplay}>
+        <div className="question">Is</div>
+        <div className="letter">{alphabetArray[firstLetter]}</div>
+        <div className="question">left or right of</div>
+        <div className="letter">{alphabetArray[secondLetter]}</div>
+        <div className="question">in the alphabet?</div>
+        <input
+          onClick={() => {
+            checkAnswer("left");
+          }}
+          value="Left"
+          type="button"
+          id="leftbutton"
+        />
+        <input
+          onClick={() => {
+            checkAnswer("right");
+          }}
+          value="Right"
+          type="button"
+          id="rightbutton"
+        />
+        <div className="answer">{answer}</div>
+      </Game>
     </Card>
   );
 }
 Alphabetical.propTypes = {
-  wood: PropTypes.number.isRequired
+  wood: PropTypes.number.isRequired,
+  changeDisplay: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
   wood: state.wood
