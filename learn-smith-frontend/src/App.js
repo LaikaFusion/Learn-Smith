@@ -4,6 +4,7 @@ import { increment, decrement } from "./redux/counterreducer";
 
 import "./App.css";
 import Card from "./components/Card";
+import Resources from "./components/Resources";
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
         <div className="topBar">TopBar</div>
         <div className="gridContainer">
           <div className="resources">
-            <Card>Resources</Card>
+            <Card><Resources/></Card>
           </div>
           <div className="inventory">
             <Card>Inventory</Card>
