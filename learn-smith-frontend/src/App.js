@@ -15,6 +15,13 @@ class App extends Component {
     };
   }
 
+  changeDisplay = (e, changeTo = "main") => {
+    e.preventDefault();
+    this.setState({
+      display: changeTo
+    });
+  };
+
   render() {
     const { display } = this.state;
     return (
@@ -28,7 +35,7 @@ class App extends Component {
               case "main":
                 return <MainPage />;
               case "alpha":
-                return <Alphabetical />;
+                return <Alphabetical changeDisplay={this.changeDisplay} />;
               default:
                 return <div> ERROR </div>;
             }

@@ -8,7 +8,7 @@ const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Alphabetical(props) {
-  const { wood } = props;
+  const { wood, changeDisplay } = props;
   const [firstLetter, setFirstLetter] = useState("");
   const [secondLetter, setSecondLetter] = useState("");
   const [answer, setAnswer] = useState("");
@@ -44,6 +44,15 @@ function Alphabetical(props) {
   return (
     <Card>
       <div className="resourceDisplay">Wood: {wood}</div>
+      <div
+        role="button"
+        onClick={changeDisplay}
+        onKeyPress={changeDisplay}
+        className="backButton"
+        tabIndex="0"
+      >
+        X
+      </div>
       <div className="question">Is</div>
       <div className="letter">{alphabetArray[firstLetter]}</div>
       <div className="question">left or right of</div>
