@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Game.css";
 
 function Game(props) {
   const { resource, resourceType, changeDisplay, children } = props;
