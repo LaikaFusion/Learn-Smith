@@ -37,7 +37,7 @@ const morseArr = [
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Morse(props) {
-  const { copper, changeDisplay } = props;
+  const { copper, changeDisplay, copperincrement, copperdecrement } = props;
   const [answerArray, setAnswerArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -100,7 +100,9 @@ function Morse(props) {
 }
 Morse.propTypes = {
   copper: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired
+  changeDisplay: PropTypes.func.isRequired,
+  copperincrement: PropTypes.func.isRequired,
+  copperdecrement: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
   copper: state.copper
