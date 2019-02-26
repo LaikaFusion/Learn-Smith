@@ -5,13 +5,14 @@ import { increment, decrement } from "./redux/counterreducer";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import Alphabetical from "./components/Alphabetical";
+import Morse from "./components/Morse";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      display: "alpha"
+      display: "morse"
     };
   }
 
@@ -36,6 +37,8 @@ class App extends Component {
                 return <MainPage />;
               case "alpha":
                 return <Alphabetical changeDisplay={this.changeDisplay} />;
+              case "morse":
+                return <Morse changeDisplay={this.changeDisplay} />;
               default:
                 return <div> ERROR </div>;
             }

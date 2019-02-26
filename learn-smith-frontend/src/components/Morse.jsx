@@ -38,13 +38,13 @@ const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Morse(props) {
   const { copper, changeDisplay } = props;
-  const [answerArray, setAnswerArray] = useState("");
+  const [answerArray, setAnswerArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
 
   const newQuestion = () => {
-    const arr = [ranLetter()];
-    while (arr.length <= 4) {
+    const arr = [];
+    while (arr.length <= 3) {
       const freshLetter = ranLetter();
       if (!arr.includes(freshLetter)) {
         arr.push(freshLetter);
