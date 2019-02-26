@@ -7,13 +7,14 @@ import MainPage from "./components/MainPage";
 import Alphabetical from "./components/games/Alphabetical";
 import Morse from "./components/games/Morse";
 import Nato from "./components/games/Nato";
+import Hex from "./components/games/Hex";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      display: "nato"
+      display: "hex"
     };
   }
 
@@ -42,6 +43,8 @@ class App extends Component {
                 return <Morse changeDisplay={this.changeDisplay} />;
               case "nato":
                 return <Nato changeDisplay={this.changeDisplay} />;
+              case "hex":
+                return <Hex changeDisplay={this.changeDisplay} />;
               default:
                 return <div> ERROR </div>;
             }
