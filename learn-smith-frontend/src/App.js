@@ -8,13 +8,14 @@ import Alphabetical from "./components/games/Alphabetical";
 import Morse from "./components/games/Morse";
 import Nato from "./components/games/Nato";
 import Hex from "./components/games/Hex";
+import TimeZones from "./components/games/TimeZones";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      display: "hex"
+      display: "zone"
     };
   }
 
@@ -45,6 +46,8 @@ class App extends Component {
                 return <Nato changeDisplay={this.changeDisplay} />;
               case "hex":
                 return <Hex changeDisplay={this.changeDisplay} />;
+              case "zone":
+                return <TimeZones changeDisplay={this.changeDisplay} />;
               default:
                 return <div> ERROR </div>;
             }
