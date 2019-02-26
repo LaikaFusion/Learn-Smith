@@ -41,6 +41,7 @@ function Morse(props) {
   const [answerArray, setAnswerArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
+  const [timer, setTimer] = useState(0);
 
   const newQuestion = () => {
     const arr = [];
@@ -55,6 +56,8 @@ function Morse(props) {
     setAnswer(arr[ranAnswer]);
   };
   const checkAnswer = ans => {
+    setAnswerDisp(``);
+    clearTimeout(timer);
     if (ans === answer) {
       copperincrement(1);
       setAnswerDisp(`Correct`);
@@ -62,9 +65,11 @@ function Morse(props) {
       copperdecrement(1);
       setAnswerDisp(`Wrong`);
     }
-    setTimeout(() => {
-      setAnswerDisp(``);
-    }, 1000);
+    setTimer(
+      setTimeout(() => {
+        setAnswerDisp(``);
+      }, 1000)
+    );
     newQuestion();
   };
   useEffect(() => {

@@ -13,8 +13,11 @@ function Alphabetical(props) {
   const [firstLetter, setFirstLetter] = useState("");
   const [secondLetter, setSecondLetter] = useState("");
   const [answer, setAnswer] = useState("");
+  const [timer, setTimer] = useState(0);
 
   const newQuestion = () => {
+    setAnswer(``);
+    clearTimeout(timer);
     const letterone = ranLetter();
     let lettertwo = ranLetter();
     while (letterone === lettertwo) {
@@ -34,9 +37,11 @@ function Alphabetical(props) {
       wooddecrement(1);
       setAnswer(`Wrong`);
     }
-    setTimeout(() => {
-      setAnswer(``);
-    }, 1000);
+    setTimer(
+      setTimeout(() => {
+        setAnswer(``);
+      }, 1000)
+    );
     newQuestion();
   };
   useEffect(() => {
