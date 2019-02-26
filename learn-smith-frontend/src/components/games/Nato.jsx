@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { steelincrement } from "../redux/steelreducer";
-import Card from "./Card";
-import Game from "./Game";
+import { steelincrement } from "../../redux/steelreducer";
+import Card from "../Card";
+import Game from "../Game";
 
 const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const natoArr = [

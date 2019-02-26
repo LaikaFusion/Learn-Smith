@@ -4,9 +4,9 @@ import { increment, decrement } from "./redux/counterreducer";
 
 import "./App.css";
 import MainPage from "./components/MainPage";
-import Alphabetical from "./components/Alphabetical";
-import Morse from "./components/Morse";
-import Nato from "./components/Nato";
+import Alphabetical from "./components/games/Alphabetical";
+import Morse from "./components/games/Morse";
+import Nato from "./components/games/Nato";
 
 class App extends Component {
   constructor(props) {
