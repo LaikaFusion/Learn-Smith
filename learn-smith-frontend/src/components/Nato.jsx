@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { steelincrement, steeldecrement } from "../redux/steelreducer";
+import { steelincrement } from "../redux/steelreducer";
 import Card from "./Card";
 import Game from "./Game";
 
@@ -37,7 +37,7 @@ const natoArr = [
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Nato(props) {
-  const { steel, changeDisplay } = props;
+  const { steel, changeDisplay, steelincrement } = props;
   const [letter, setLetter] = useState("");
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -78,7 +78,8 @@ function Nato(props) {
 }
 Nato.propTypes = {
   steel: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired
+  changeDisplay: PropTypes.func.isRequired,
+  steelincrement: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
   steel: state.steel
@@ -86,5 +87,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { steelincrement, steeldecrement }
+  { steelincrement }
 )(Nato);
