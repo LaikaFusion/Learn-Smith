@@ -407,9 +407,7 @@ function TimeZones(props) {
         resourceType="silver"
         changeDisplay={changeDisplay}
       >
-        <div className="question">
-          What is the offset of this timezone character?
-        </div>
+        <div className="question">What is the offset of this timezone?</div>
         <div className="letter">{answer.name}</div>
         {answerArray.map((e, i) => {
           return (
