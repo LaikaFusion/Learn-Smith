@@ -9,7 +9,7 @@ const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Alphabetical(props) {
-  const { wood, changeDisplay } = props;
+  const { wood, woodincrement, wooddecrement, changeDisplay } = props;
   const [firstLetter, setFirstLetter] = useState("");
   const [secondLetter, setSecondLetter] = useState("");
   const [answer, setAnswer] = useState("");
@@ -73,7 +73,9 @@ function Alphabetical(props) {
 }
 Alphabetical.propTypes = {
   wood: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired
+  changeDisplay: PropTypes.func.isRequired,
+  woodincrement: PropTypes.func.isRequired,
+  wooddecrement: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
   wood: state.wood

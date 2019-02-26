@@ -39,7 +39,9 @@
             ".jsx"
           ]
         }
-      ]
+      ],
+      "no-shadow": "off"
+
     },
     "env": {
       "browser": true
