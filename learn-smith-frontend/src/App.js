@@ -9,13 +9,14 @@ import Morse from "./components/games/Morse";
 import Nato from "./components/games/Nato";
 import Hex from "./components/games/Hex";
 import TimeZones from "./components/games/TimeZones";
+import Percentages from "./components/games/Percentages";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      display: "zone"
+      display: "perc"
     };
   }
 
@@ -48,6 +49,8 @@ class App extends Component {
                 return <Hex changeDisplay={this.changeDisplay} />;
               case "zone":
                 return <TimeZones changeDisplay={this.changeDisplay} />;
+              case "perc":
+                return <Percentages changeDisplay={this.changeDisplay} />;
               default:
                 return <div> ERROR </div>;
             }

@@ -6,7 +6,7 @@ import Card from "../Card";
 import Game from "../Game";
 
 const ranFive = () => (Math.floor(Math.random() * 30) + 1) * 5;
-const ranHundred = () => Math.floor(Math.random() * 100 + 1);
+const ranHundred = () => Math.floor(Math.random() * 20 + 1) * 5;
 
 function Percentage(props) {
   const { obsidian, changeDisplay, obsidianincrement } = props;
@@ -40,7 +40,7 @@ function Percentage(props) {
         changeDisplay={changeDisplay}
       >
         <div className="question">
-          What is {percent} of {mainVal}?
+          What is {percent}% of {mainVal}?
         </div>
 
         <input spellCheck={false} onKeyUp={checkAnswer} type="text" />
