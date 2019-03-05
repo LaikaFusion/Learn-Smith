@@ -1,5 +1,5 @@
 import { createReducer, createAction } from "redux-starter-kit";
-import { add, subtract } from "./reducerCountLogic";
+import { add, subtract } from "../reducerCountLogic";
 
 const goldincrement = createAction("gold/increment");
 const golddecrement = createAction("gold/decrement");

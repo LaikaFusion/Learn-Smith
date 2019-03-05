@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { obsidianincrement } from "../../redux/obsidianreducer";
+import { obsidianincrement } from "../../redux/resourceIncrimentors/obsidianreducer";
 import Card from "../Card";
 import Game from "../Game";
 

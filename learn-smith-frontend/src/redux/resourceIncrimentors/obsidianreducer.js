@@ -1,5 +1,5 @@
 import { createReducer, createAction } from "redux-starter-kit";
-import { add, subtract } from "./reducerCountLogic";
+import { add, subtract } from "../reducerCountLogic";
 
 const obsidianincrement = createAction("obsidian/increment");
 const obsidiandecrement = createAction("obsidian/decrement");

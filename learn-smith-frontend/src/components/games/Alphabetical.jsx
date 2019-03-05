@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { woodincrement, wooddecrement } from "../../redux/woodreducer";
+import {
+  woodincrement,
+  wooddecrement
+} from "../../redux/resourceIncrimentors/woodreducer";
 import Card from "../Card";
 import Game from "../Game";
 

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { ironincrement, irondecrement } from "../../redux/ironreducer";
+import {
+  ironincrement,
+  irondecrement
+} from "../../redux/resourceIncrimentors/ironreducer";
 import Card from "../Card";
 import Game from "../Game";
 import "./Hex.css";

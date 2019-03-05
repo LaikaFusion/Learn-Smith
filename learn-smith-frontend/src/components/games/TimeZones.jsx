@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { silverincrement, silverdecrement } from "../../redux/silverreducer";
+import {
+  silverincrement,
+  silverdecrement
+} from "../../redux/resourceIncrimentors/silverreducer";
 import Card from "../Card";
 import Game from "../Game";
 
