@@ -11,7 +11,8 @@ const preloadedState = {
   copper: 0,
   bronze: 0,
   obsidian: 0,
-  gold: 0
+  gold: 0,
+  display: "main"
 };
 
 const store = configureStore({ reducer: rootReducer, preloadedState });
