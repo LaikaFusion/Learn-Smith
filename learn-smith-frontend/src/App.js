@@ -25,7 +25,7 @@ class App extends Component {
       <div className="App">
         {/* {this.props.counter}
         <button onClick={() => this.props.increment(1)}>aaa</button> */}
-        <div className="topBar">TopBar</div>
+        <div className="topBar">Learn Smith</div>
         <div className="lowerPage">
           {(() => {
             switch (display) {
