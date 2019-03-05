@@ -12,7 +12,7 @@ import "./Hex.css";
 const ranColor = () => Math.floor(Math.random() * 16777215).toString(16);
 
 function Hex(props) {
-  const { iron, changeDisplay, ironincrement, irondecrement } = props;
+  const { iron, ironincrement, irondecrement } = props;
   const [answerArray, setAnswerArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -53,7 +53,7 @@ function Hex(props) {
   }, []);
   return (
     <Card>
-      <Game resource={iron} resourceType="iron" changeDisplay={changeDisplay}>
+      <Game resource={iron} resourceType="iron">
         <div className="question">What is the color of this HexCode?</div>
         <div className="letter">#{answer}</div>
         {answerArray.map((e, i) => {
@@ -80,7 +80,6 @@ function Hex(props) {
 }
 Hex.propTypes = {
   iron: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   ironincrement: PropTypes.func.isRequired,
   irondecrement: PropTypes.func.isRequired
 };

@@ -12,7 +12,7 @@ const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Alphabetical(props) {
-  const { wood, woodincrement, wooddecrement, changeDisplay } = props;
+  const { wood, woodincrement, wooddecrement } = props;
   const [firstLetter, setFirstLetter] = useState("");
   const [secondLetter, setSecondLetter] = useState("");
   const [answer, setAnswer] = useState("");
@@ -52,7 +52,7 @@ function Alphabetical(props) {
   }, []);
   return (
     <Card>
-      <Game resource={wood} resourceType="Wood" changeDisplay={changeDisplay}>
+      <Game resource={wood} resourceType="Wood">
         <div className="question">Is</div>
         <div className="letter">{alphabetArray[firstLetter]}</div>
         <div className="question">left or right of</div>
@@ -81,7 +81,6 @@ function Alphabetical(props) {
 }
 Alphabetical.propTypes = {
   wood: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   woodincrement: PropTypes.func.isRequired,
   wooddecrement: PropTypes.func.isRequired
 };

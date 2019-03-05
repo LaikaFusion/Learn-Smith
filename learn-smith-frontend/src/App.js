@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { increment, decrement } from "./redux/counterreducer";
 
@@ -15,20 +16,11 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      display: "perc"
-    };
+    this.state = {};
   }
 
-  changeDisplay = (e, changeTo = "main") => {
-    e.preventDefault();
-    this.setState({
-      display: changeTo
-    });
-  };
-
   render() {
-    const { display } = this.state;
+    const { display } = this.props;
     return (
       <div className="App">
         {/* {this.props.counter}
@@ -40,17 +32,17 @@ class App extends Component {
               case "main":
                 return <MainPage />;
               case "alpha":
-                return <Alphabetical changeDisplay={this.changeDisplay} />;
+                return <Alphabetical />;
               case "morse":
-                return <Morse changeDisplay={this.changeDisplay} />;
+                return <Morse />;
               case "nato":
-                return <Nato changeDisplay={this.changeDisplay} />;
+                return <Nato />;
               case "hex":
-                return <Hex changeDisplay={this.changeDisplay} />;
+                return <Hex />;
               case "zone":
-                return <TimeZones changeDisplay={this.changeDisplay} />;
+                return <TimeZones />;
               case "perc":
-                return <Percentages changeDisplay={this.changeDisplay} />;
+                return <Percentages />;
               default:
                 return <div> ERROR </div>;
             }
@@ -60,8 +52,13 @@ class App extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({ counter: state.counter });
+App.propTypes = {
+  display: PropTypes.string.isRequired
+};
+const mapStateToProps = state => ({
+  counter: state.counter,
+  display: state.display
+});
 
 export default connect(
   mapStateToProps,

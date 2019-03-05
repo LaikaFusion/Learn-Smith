@@ -37,7 +37,7 @@ const natoArr = [
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Nato(props) {
-  const { steel, changeDisplay, steelincrement } = props;
+  const { steel, steelincrement } = props;
   const [letter, setLetter] = useState("");
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -63,7 +63,7 @@ function Nato(props) {
   }, []);
   return (
     <Card>
-      <Game resource={steel} resourceType="Steel" changeDisplay={changeDisplay}>
+      <Game resource={steel} resourceType="Steel">
         <div className="question">
           What is the Nato Phonetic Alpabet representation of this character?
         </div>
@@ -78,7 +78,6 @@ function Nato(props) {
 }
 Nato.propTypes = {
   steel: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   steelincrement: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({

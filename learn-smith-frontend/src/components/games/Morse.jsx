@@ -40,7 +40,7 @@ const morseArr = [
 const ranLetter = () => Math.floor(Math.random() * 25);
 
 function Morse(props) {
-  const { copper, changeDisplay, copperincrement, copperdecrement } = props;
+  const { copper, copperincrement, copperdecrement } = props;
   const [answerArray, setAnswerArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -80,11 +80,7 @@ function Morse(props) {
   }, []);
   return (
     <Card>
-      <Game
-        resource={copper}
-        resourceType="Copper"
-        changeDisplay={changeDisplay}
-      >
+      <Game resource={copper} resourceType="Copper">
         <div className="question">
           What is the letter of this Morse character?
         </div>
@@ -108,7 +104,6 @@ function Morse(props) {
 }
 Morse.propTypes = {
   copper: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   copperincrement: PropTypes.func.isRequired,
   copperdecrement: PropTypes.func.isRequired
 };

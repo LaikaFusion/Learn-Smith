@@ -365,7 +365,7 @@ const timezones = [
 const ranZone = () => Math.floor(Math.random() * (timezones.length - 1));
 
 function TimeZones(props) {
-  const { silver, changeDisplay, silverincrement, silverdecrement } = props;
+  const { silver, silverincrement, silverdecrement } = props;
   const [answerArray, setAnswerArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -405,11 +405,7 @@ function TimeZones(props) {
   }, []);
   return (
     <Card>
-      <Game
-        resource={silver}
-        resourceType="silver"
-        changeDisplay={changeDisplay}
-      >
+      <Game resource={silver} resourceType="silver">
         <div className="question">What is the offset of this timezone?</div>
         <div className="letter">{answer.name}</div>
         {answerArray.map((e, i) => {
@@ -431,7 +427,6 @@ function TimeZones(props) {
 }
 TimeZones.propTypes = {
   silver: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   silverincrement: PropTypes.func.isRequired,
   silverdecrement: PropTypes.func.isRequired
 };

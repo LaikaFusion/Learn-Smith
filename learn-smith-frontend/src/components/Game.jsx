@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { switchDisplay } from "../redux/displayreducer";
 import "./Game.css";
 
 function Game(props) {
-  const { resource, resourceType, changeDisplay, children } = props;
+  const { resource, resourceType, children } = props;
   return (
     <div className="gameLayout">
       <div className="resourceDisplay">
@@ -12,8 +14,8 @@ function Game(props) {
 
       <div
         role="button"
-        onClick={changeDisplay}
-        onKeyPress={changeDisplay}
+        onClick={() => switchDisplay("main")}
+        onKeyPress={() => switchDisplay("main")}
         className="backButton"
         tabIndex="0"
       >
@@ -27,8 +29,10 @@ function Game(props) {
 Game.propTypes = {
   resource: PropTypes.number.isRequired,
   resourceType: PropTypes.string.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired
 };
 
-export default Game;
+export default connect(
+  null,
+  { switchDisplay }
+)(Game);

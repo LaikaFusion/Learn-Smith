@@ -9,7 +9,7 @@ const ranFive = () => (Math.floor(Math.random() * 30) + 1) * 5;
 const ranHundred = () => Math.floor(Math.random() * 20 + 1) * 5;
 
 function Percentage(props) {
-  const { obsidian, changeDisplay, obsidianincrement } = props;
+  const { obsidian, obsidianincrement } = props;
   const [percent, setPercent] = useState("");
   const [mainVal, setMainVal] = useState("");
   const [answerDisp, setAnswerDisp] = useState("");
@@ -34,11 +34,7 @@ function Percentage(props) {
   }, []);
   return (
     <Card>
-      <Game
-        resource={obsidian}
-        resourceType="obsidian"
-        changeDisplay={changeDisplay}
-      >
+      <Game resource={obsidian} resourceType="obsidian">
         <div className="question">
           What is {percent}% of {mainVal}?
         </div>
@@ -52,7 +48,6 @@ function Percentage(props) {
 }
 Percentage.propTypes = {
   obsidian: PropTypes.number.isRequired,
-  changeDisplay: PropTypes.func.isRequired,
   obsidianincrement: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
