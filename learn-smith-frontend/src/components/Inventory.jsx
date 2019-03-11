@@ -2,19 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const Inventory=(props)=> {
-  const {inventory} = props;
+const Inventory = props => {
+  const { inventory } = props;
   return (
     <div className="inventoryContainer">
-      {inventory.map((e,i)=>{
-        return e
-      })}
+      Inventory
+      <div className="list">
+        {inventory.map((e, i) => {
+          return e.name;
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 Inventory.propTypes = {
- inventory = PropTypes.array.isRequired
+  inventory: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import Resources from "./Resources";
+import Inventory from "./Inventory";
 
 export default function MainPage() {
   return (
@@ -11,7 +12,7 @@ export default function MainPage() {
         </Card>
       </div>
       <div className="inventory">
-        <Card>Inventory</Card>
+        <Card><Inventory/></Card>
       </div>
       <div className="customers">
         <Card>Customers</Card>
