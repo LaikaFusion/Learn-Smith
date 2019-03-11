@@ -5,7 +5,7 @@ import { switchDisplay } from "../redux/displayreducer";
 import "./Game.css";
 
 function Game(props) {
-  const { resource, resourceType, children } = props;
+  const { resource, resourceType, children, switchDisplay } = props;
   return (
     <div className="gameLayout">
       <div className="resourceDisplay">
@@ -29,7 +29,8 @@ function Game(props) {
 Game.propTypes = {
   resource: PropTypes.number.isRequired,
   resourceType: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  switchDisplay: PropTypes.func.isRequired
 };
 
 export default connect(
