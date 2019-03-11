@@ -5,7 +5,8 @@ import rootReducer from "./rootReducers";
 
 const persistConfig = {
   key: "root",
-  storage
+  storage,
+  blacklist: ['display']
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
