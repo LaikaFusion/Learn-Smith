@@ -12,7 +12,8 @@ const preloadedState = {
   bronze: 0,
   obsidian: 0,
   gold: 0,
-  display: "main"
+  display: "main",
+  inventory: []
 };
 
 const store = configureStore({ reducer: rootReducer, preloadedState });
