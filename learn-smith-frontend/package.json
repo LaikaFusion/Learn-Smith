@@ -9,6 +9,7 @@
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
     "redux-starter-kit": "^0.4.3"
   },
   "scripts": {
@@ -41,7 +42,6 @@
         }
       ],
       "no-shadow": "off"
-
     },
     "env": {
       "browser": true

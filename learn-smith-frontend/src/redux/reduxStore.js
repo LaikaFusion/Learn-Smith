@@ -1,5 +1,13 @@
 import { configureStore } from "redux-starter-kit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import rootReducer from "./rootReducers";
+
+const persistConfig = {
+  key: "root",
+  storage
+};
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const preloadedState = {
   counter: 0,
@@ -16,6 +24,7 @@ const preloadedState = {
   inventory: []
 };
 
-const store = configureStore({ reducer: rootReducer, preloadedState });
+const store = configureStore({ reducer: persistedReducer, preloadedState });
+const persistor = persistStore(store);
 
-export default store;
+export { store, persistor };
