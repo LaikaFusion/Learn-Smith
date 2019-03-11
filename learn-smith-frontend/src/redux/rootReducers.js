@@ -10,6 +10,7 @@ import { bronzeReducer } from "./resourceIncrimentors/bronzereducer";
 import { obsidianReducer } from "./resourceIncrimentors/obsidianreducer";
 import { goldReducer } from "./resourceIncrimentors/goldreducer";
 import { displayReducer } from "./displayreducer";
+import { inventoryReducer } from "./inventoryreducer";
 
 const rootReducer = combineReducers({
   counter: counterReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   bronze: bronzeReducer,
   obsidian: obsidianReducer,
   gold: goldReducer,
-  display: displayReducer
+  display: displayReducer,
+  inventory: inventoryReducer
 });
 
 export default rootReducer;

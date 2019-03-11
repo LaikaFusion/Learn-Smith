@@ -66,4 +66,4 @@ const weaponRecipe = () => {
   return weaponObj;
 };
 
-export default weaponRecipe;
+export { ingridents, weaponRecipe};

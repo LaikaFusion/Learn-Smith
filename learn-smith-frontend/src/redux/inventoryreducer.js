@@ -1,12 +1,18 @@
 import { createReducer, createAction } from "redux-starter-kit";
-import { add, subtract } from "./reducerCountLogic";
 
 const inventoryadd = createAction("inventory/add");
 const inventoryremove = createAction("inventory/remove");
 
-const incrimenterReducer = createReducer(0, {
-  [inventoryadd]: (state, action) => add(state, action.payload),
-  [inventoryremove]: (state, action) => subtract(state, action.payload)
+const inventoryReducer = createReducer(0, {
+  [inventoryadd]: (state, action) => state.push(action.payload),
+  [inventoryremove]: (state, action) => {
+    state.filter((e,i)=>{
+      if (e.id===action.payload.id){
+        return false
+      }
+      return true
+    })
+  }
 });
 
-export { incrimenterReducer, incrimenterincrement, incrimenterdecrement };
+export { inventoryReducer, inventoryadd, inventoryremove };
