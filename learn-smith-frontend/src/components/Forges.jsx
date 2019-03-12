@@ -1,19 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 
 const Forges = props => {
-  const {
-    wood,
-    iron,
-    silver,
-    steel,
-    copper,
-    bronze,
-    obsidian,
-    gold,
-    switchDisplay
-  } = props;
   const [oreone, setOreone] = useState("wood");
   const [oretwo, setOretwo] = useState("wood");
   const [orethree, setOrethree] = useState("wood");
@@ -37,8 +27,33 @@ const Forges = props => {
     );
   };
 
-  const makeItem = (oreOne, oreTwo, oreThree) => {};
-
+  const makeItemChecks = (oreOne, oreTwo, oreThree) => {
+    let checks = false;
+    if(oreOne === oreTwo && oreTwo === oreThree && props[oreOne] >= 3 ){
+      checks = true
+    }
+    if(oreOne === oreTwo && props[oreOne] >= 2 && props[oreThree] >=1){
+      checks = true
+    }
+    if(oreOne === oreThree && props[oreOne] >= 2 && props[oreTwo] >=1){
+      checks = true
+    }
+    if(oreOne === oreThree && props[oreOne] >= 2 && props[oreTwo] >=1){
+      checks = true
+    }
+    if(oreTwo === oreThree && props[oreTwo] >= 2 && props[oreOne] >=1){
+      checks = true
+    }
+    if(props[oreOne] >=1&&props[oreTwo]>=1&& props[oreThree] >= 1){
+      checks = true
+    }
+    if(checks){
+      makeItem(oreOne,oreTwo,oreThree);
+    }
+  };
+  const makeItem = (oreOne, oreTwo, oreThree)=>{
+    
+  }
   return (
     <div className="forge">
       Forge:
@@ -47,7 +62,7 @@ const Forges = props => {
       {materials("ore3", setOrethree)}
       <button
         onClick={() => {
-          makeItem(oreone, oretwo, orethree);
+          makeItemChecks(oreone, oretwo, orethree);
         }}
       >
         Make
@@ -80,5 +95,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { switchDisplay }
+  {  }
 )(Forges);

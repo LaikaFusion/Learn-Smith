@@ -66,4 +66,17 @@ const weaponRecipe = () => {
   return weaponObj;
 };
 
-export { ingridents, weaponRecipe};
+const lookupWeapon = (oreOne, oreTwo, oreThree) => {
+  const weaponObj = { name: "", recipe: [oreOne, oreTwo, oreThree] };
+  for (const key in recipes) {
+    if (
+      recipes[key].recipes[0] === oreTwo &&
+      recipes[key].recipes[0] === oreThree
+    ) {
+      weaponObj.name =`${jsUcfirst(oreOne)} ${recipes[key].name}`
+    }
+  }
+  return weaponObj;
+};
+
+export { ingridents, weaponRecipe };
