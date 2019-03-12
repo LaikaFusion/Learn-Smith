@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import Resources from "./Resources";
 import Inventory from "./Inventory";
+import Forges from "./Forges";
 
 export default function MainPage() {
   return (
@@ -18,7 +19,7 @@ export default function MainPage() {
         <Card>Customers</Card>
       </div>
       <div className="forges">
-        <Card>forge</Card>
+        <Card><Forges/></Card>
       </div>
     </div>
   );
