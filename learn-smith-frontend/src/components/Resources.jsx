@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { switchDisplay } from "../redux/displayreducer";
+import { mapStateToProps, resPropTypes } from "../helpers/stateList";
 
 const Resources = props => {
   const {
@@ -102,27 +103,9 @@ const Resources = props => {
 };
 
 Resources.propTypes = {
-  wood: PropTypes.number.isRequired,
-  iron: PropTypes.number.isRequired,
-  steel: PropTypes.number.isRequired,
-  silver: PropTypes.number.isRequired,
-  copper: PropTypes.number.isRequired,
-  bronze: PropTypes.number.isRequired,
-  obsidian: PropTypes.number.isRequired,
-  gold: PropTypes.number.isRequired,
+  ...resPropTypes,
   switchDisplay: PropTypes.func.isRequired
 };
-
-const mapStateToProps = state => ({
-  wood: state.wood,
-  iron: state.iron,
-  steel: state.steel,
-  silver: state.silver,
-  copper: state.copper,
-  bronze: state.bronze,
-  obsidian: state.obsidian,
-  gold: state.gold
-});
 
 export default connect(
   mapStateToProps,
