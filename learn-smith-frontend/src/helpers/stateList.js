@@ -47,7 +47,7 @@ const resPropTypes = {
 const decPropTypes = {
   copperdecrement: PropTypes.func.isRequired,
   wooddecrement: PropTypes.func.isRequired,irondecrement: PropTypes.func.isRequired,
-  steelincrement: PropTypes.func.isRequired,
+  steeldecrement: PropTypes.func.isRequired,
   silverdecrement: PropTypes.func.isRequired,
   obsidiandecrement: PropTypes.func.isRequired
 };
@@ -56,7 +56,7 @@ const decrementers = {
   copperdecrement,
   wooddecrement,
   irondecrement,
-  steelincrement,
+  steeldecrement,
   silverdecrement,
   obsidiandecrement
 };

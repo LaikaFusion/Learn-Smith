@@ -79,4 +79,4 @@ const lookupWeapon = (oreOne, oreTwo, oreThree) => {
   return weaponObj;
 };
 
-export { ingridents, weaponRecipe };
+export { ingridents, weaponRecipe, lookupWeapon };

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { mapStateToProps, resPropTypes, decrementers, decPropTypes  } from "../helpers/stateList";
+import { lookupWeapon } from "../helpers/weaponGen";
+import { inventoryadd } from "../redux/inventoryreducer";
 
 
 const Forges = props => {
@@ -55,7 +57,8 @@ const Forges = props => {
     removeResource(oreOne);
     removeResource(oreTwo);
     removeResource(oreThree);
-
+    let weapon = lookupWeapon(oreOne,oreTwo,oreThree);
+    props.inventoryadd(weapon)
   }
   const removeResource = (resource)=>{
     switch (resource) {
@@ -78,6 +81,7 @@ const Forges = props => {
         props.silverdecrement(1);
         break;
       default:
+      console.log('error')
         break;
     }
   }
@@ -104,5 +108,5 @@ Forges.propTypes = {...decPropTypes,
 
 export default connect(
   mapStateToProps,
-  {...decrementers  }
+  {...decrementers, inventoryadd  }
 )(Forges);
