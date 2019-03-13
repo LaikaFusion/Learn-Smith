@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { mapStateToProps, resPropTypes } from "../helpers/stateList";
+import { mapStateToProps, resPropTypes, decrementers, decPropTypes  } from "../helpers/stateList";
 
 
 const Forges = props => {
@@ -53,7 +52,34 @@ const Forges = props => {
     }
   };
   const makeItem = (oreOne, oreTwo, oreThree)=>{
+    removeResource(oreOne);
+    removeResource(oreTwo);
+    removeResource(oreThree);
 
+  }
+  const removeResource = (resource)=>{
+    switch (resource) {
+      case "wood":
+        props.wooddecrement(1);
+        break;
+      case "steel":
+        props.steeldecrement(1);
+        break;
+      case "iron":
+        props.irondecrement(1);
+        break;
+      case "copper":
+        props.copperdecrement(1);
+        break;
+      case "obsidian":
+        props.obsidiandecrement(1);
+        break;
+      case "silver":
+        props.silverdecrement(1);
+        break;
+      default:
+        break;
+    }
   }
   return (
     <div className="forge">
@@ -73,11 +99,10 @@ const Forges = props => {
   );
 };
 
-Forges.propTypes = {
-  ...resPropTypes
-};
+Forges.propTypes = {...decPropTypes,
+  ...resPropTypes };
 
 export default connect(
   mapStateToProps,
-  {  }
+  {...decrementers  }
 )(Forges);

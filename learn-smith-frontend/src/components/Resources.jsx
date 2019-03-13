@@ -11,7 +11,6 @@ const Resources = props => {
     silver,
     steel,
     copper,
-    bronze,
     obsidian,
     gold,
     switchDisplay
@@ -104,10 +103,14 @@ const Resources = props => {
 
 Resources.propTypes = {
   ...resPropTypes,
-  switchDisplay: PropTypes.func.isRequired
+  switchDisplay: PropTypes.func.isRequired,
+  gold: PropTypes.number.isRequired
+
 };
 
+
+
 export default connect(
-  mapStateToProps,
+ mapStateToProps,
   { switchDisplay }
 )(Resources);

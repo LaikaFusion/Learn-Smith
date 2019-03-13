@@ -1,5 +1,28 @@
-import { PropTypes, shape, number, string, oneOf } from 'prop-types';
-
+import { PropTypes } from "prop-types";
+import {
+  copperincrement,
+  copperdecrement
+} from "../redux/resourceIncrimentors/copperreducer";
+import {
+  woodincrement,
+  wooddecrement
+} from "../redux/resourceIncrimentors/woodreducer";
+import {
+  ironincrement,
+  irondecrement
+} from "../redux/resourceIncrimentors/ironreducer";
+import {
+  steelincrement,
+  steeldecrement
+} from "../redux/resourceIncrimentors/steelreducer";
+import {
+  obsidianincrement,
+  obsidiandecrement
+} from "../redux/resourceIncrimentors/obsidianreducer";
+import {
+  silverincrement,
+  silverdecrement
+} from "../redux/resourceIncrimentors/silverreducer";
 
 const mapStateToProps = state => ({
   wood: state.wood,
@@ -18,9 +41,24 @@ const resPropTypes = {
   steel: PropTypes.number.isRequired,
   silver: PropTypes.number.isRequired,
   copper: PropTypes.number.isRequired,
-  bronze: PropTypes.number.isRequired,
-  obsidian: PropTypes.number.isRequired,
-  gold: PropTypes.number.isRequired
+  obsidian: PropTypes.number.isRequired
 };
 
-export { mapStateToProps, resPropTypes };
+const decPropTypes = {
+  copperdecrement: PropTypes.func.isRequired,
+  wooddecrement: PropTypes.func.isRequired,irondecrement: PropTypes.func.isRequired,
+  steelincrement: PropTypes.func.isRequired,
+  silverdecrement: PropTypes.func.isRequired,
+  obsidiandecrement: PropTypes.func.isRequired
+};
+
+const decrementers = {
+  copperdecrement,
+  wooddecrement,
+  irondecrement,
+  steelincrement,
+  silverdecrement,
+  obsidiandecrement
+};
+
+export { mapStateToProps, resPropTypes, decrementers, decPropTypes };
