@@ -34,7 +34,7 @@ const natoArr = [
   "yankee",
   "zulu"
 ];
-const ranLetter = () => Math.floor(Math.random() * 25);
+const ranLetter = () => Math.floor(Math.random() * 26);
 
 function Nato(props) {
   const { steel, steelincrement } = props;

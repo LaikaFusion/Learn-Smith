@@ -9,7 +9,7 @@ import Card from "../Card";
 import Game from "../Game";
 
 const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const ranLetter = () => Math.floor(Math.random() * 25);
+const ranLetter = () => Math.floor(Math.random() * 26);
 
 function Alphabetical(props) {
   const { wood, woodincrement, wooddecrement } = props;

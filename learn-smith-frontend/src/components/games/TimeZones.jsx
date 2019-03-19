@@ -380,7 +380,7 @@ function TimeZones(props) {
       }
     }
     setAnswerArray(arr);
-    const ranAnswer = Math.floor(Math.random() * 3);
+    const ranAnswer = Math.floor(Math.random() * 4);
     setAnswer(arr[ranAnswer]);
   };
   const checkAnswer = ans => {
