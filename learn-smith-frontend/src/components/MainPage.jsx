@@ -3,6 +3,7 @@ import Card from "./Card";
 import Resources from "./Resources";
 import Inventory from "./Inventory";
 import Forges from "./Forges";
+import Customers from "./Customers";
 
 export default function MainPage() {
   return (
@@ -18,7 +19,9 @@ export default function MainPage() {
         </Card>
       </div>
       <div className="customers">
-        <Card>Customers</Card>
+        <Card>
+          <Customers />
+        </Card>
       </div>
       <div className="forges">
         <Card>
