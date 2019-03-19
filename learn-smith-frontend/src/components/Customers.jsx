@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { weaponRecipe } from "../helpers/weaponGen";
+import { createCustomer } from "../helpers/customerGen";
 
 //  https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 function useInterval(callback, delay) {
@@ -29,7 +30,8 @@ const Customers = props => {
   const { customers, inventory } = props;
   useInterval(() => {
     if (customers.length <= 5) {
-      console.log(weaponRecipe());
+      console.log();
+      console.log(createCustomer(weaponRecipe()))
     }
   }, 2000);
   return <div className="customersRow">test</div>;
