@@ -22,7 +22,7 @@ const preloadedState = {
   obsidian: 10,
   gold: 0,
   display: "main",
-  inventory: [],
+  inventory: { curID: 0, list: [] },
   customers: []
 };
 

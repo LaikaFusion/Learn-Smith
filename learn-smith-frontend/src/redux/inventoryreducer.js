@@ -5,9 +5,12 @@ const inventoryremove = createAction("inventory/remove");
 
 const inventoryReducer = createReducer([], {
   [inventoryadd]: (state, action) => {
-    console.log(state);
-    state.push(action.payload);
-    state.sort((a, b) => {
+    const toPush = action.payload;
+    toPush.id = state.curID;
+    // eslint-disable-next-line no-param-reassign
+    state.curID += 1;
+    state.list.push(toPush);
+    state.list.sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
   },

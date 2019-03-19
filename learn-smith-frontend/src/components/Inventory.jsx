@@ -21,7 +21,7 @@ Inventory.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  inventory: state.inventory
+  inventory: state.inventory.list
 });
 
 export default connect(
