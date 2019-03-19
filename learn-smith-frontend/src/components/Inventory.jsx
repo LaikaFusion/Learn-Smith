@@ -7,17 +7,17 @@ const Inventory = props => {
   return (
     <div className="inventoryContainer">
       Inventory
-      <div className="list">
+      <ul className="list">
         {inventory.map((e, i) => {
-          return e.name;
+          return <li>{e.name}</li>;
         })}
-      </div>
+      </ul>
     </div>
   );
 };
 
 Inventory.propTypes = {
-  inventory: PropTypes.array.isRequired
+  inventory: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 const mapStateToProps = state => ({
