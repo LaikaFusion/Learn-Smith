@@ -47,8 +47,9 @@ const recipes = {
   flamberge: { name: "Flamberge", recipes: ["silver", "silver"] }
 };
 
-const randomProperty = function(obj) {
+const randomProperty = obj => {
   const keys = Object.keys(obj);
+  // eslint-disable-next-line no-bitwise
   return obj[keys[(keys.length * Math.random()) << 0]];
 };
 
@@ -71,9 +72,9 @@ const lookupWeapon = (oreOne, oreTwo, oreThree) => {
   for (const key in recipes) {
     if (
       recipes[key].recipes[0] === oreTwo &&
-      recipes[key].recipes[0] === oreThree
+      recipes[key].recipes[1] === oreThree
     ) {
-      weaponObj.name =`${jsUcfirst(oreOne)} ${recipes[key].name}`
+      weaponObj.name = `${jsUcfirst(oreOne)} ${recipes[key].name}`;
     }
   }
   return weaponObj;

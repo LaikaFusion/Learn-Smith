@@ -8,7 +8,7 @@ const Inventory = props => {
     <div className="inventoryContainer">
       Inventory
       <ul className="list">
-        {inventory.map((e, i) => {
+        {inventory.map(e => {
           return <li>{e.name}</li>;
         })}
       </ul>
