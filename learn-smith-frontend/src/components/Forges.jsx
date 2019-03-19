@@ -103,7 +103,6 @@ const Forges = props => {
       >
         Make
       </button>
-      {/* {materials(test)} */}
     </div>
   );
 };

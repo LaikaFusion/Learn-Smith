@@ -6,7 +6,7 @@ import rootReducer from "./rootReducers";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ['display']
+  blacklist: ["display"]
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -22,7 +22,8 @@ const preloadedState = {
   obsidian: 10,
   gold: 0,
   display: "main",
-  inventory: []
+  inventory: [],
+  customers: []
 };
 
 const store = configureStore({ reducer: persistedReducer, preloadedState });
