@@ -23,7 +23,7 @@ const preloadedState = {
   gold: 0,
   display: "main",
   inventory: { curID: 0, list: [] },
-  customers: []
+  customers: { curID: 0, list: [] }
 };
 
 const store = configureStore({ reducer: persistedReducer, preloadedState });

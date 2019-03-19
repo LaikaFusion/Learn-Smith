@@ -5,7 +5,14 @@ const customerremove = createAction("customer/remove");
 
 const customerReducer = createReducer([], {
   [customeradd]: (state, action) => {
-    state.push(action.payload);
+    const toPush = action.payload;
+    toPush.id = state.curID;
+    // eslint-disable-next-line no-param-reassign
+    state.curID += 1;
+    state.list.push(toPush);
+    state.list.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
   },
   [customerremove]: (state, action) => {
     state.filter((e, i) => {

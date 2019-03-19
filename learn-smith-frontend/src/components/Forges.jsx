@@ -85,6 +85,7 @@ const Forges = props => {
         props.silverdecrement(1);
         break;
       default:
+        // eslint-disable-next-line no-console
         console.log("error");
         break;
     }
