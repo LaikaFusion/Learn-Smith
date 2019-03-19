@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { mapStateToProps, resPropTypes, decrementers, decPropTypes  } from "../helpers/stateList";
+import {
+  mapStateToProps,
+  resPropTypes,
+  decrementers,
+  decPropTypes
+} from "../helpers/stateList";
 import { lookupWeapon } from "../helpers/weaponGen";
 import { inventoryadd } from "../redux/inventoryreducer";
-
 
 const Forges = props => {
   const [oreone, setOreone] = useState("wood");
@@ -20,47 +24,47 @@ const Forges = props => {
         id="materialOne"
       >
         <option value="wood">Wood</option>
-        <option value="copper">Copper</option>
         <option value="iron">Iron</option>
-        <option value="steel">Steel</option>
-        <option value="obsidian">Obsidian</option>
         <option value="silver">Silver</option>
+        <option value="steel">Steel</option>
+        <option value="copper">Copper</option>
+        <option value="obsidian">Obsidian</option>
       </select>
     );
   };
 
   const makeItemChecks = (oreOne, oreTwo, oreThree) => {
     let checks = false;
-    if(oreOne === oreTwo && oreTwo === oreThree && props[oreOne] >= 3 ){
-      checks = true
+    if (oreOne === oreTwo && oreTwo === oreThree && props[oreOne] >= 3) {
+      checks = true;
     }
-    if(oreOne === oreTwo && props[oreOne] >= 2 && props[oreThree] >=1){
-      checks = true
+    if (oreOne === oreTwo && props[oreOne] >= 2 && props[oreThree] >= 1) {
+      checks = true;
     }
-    if(oreOne === oreThree && props[oreOne] >= 2 && props[oreTwo] >=1){
-      checks = true
+    if (oreOne === oreThree && props[oreOne] >= 2 && props[oreTwo] >= 1) {
+      checks = true;
     }
-    if(oreOne === oreThree && props[oreOne] >= 2 && props[oreTwo] >=1){
-      checks = true
+    if (oreOne === oreThree && props[oreOne] >= 2 && props[oreTwo] >= 1) {
+      checks = true;
     }
-    if(oreTwo === oreThree && props[oreTwo] >= 2 && props[oreOne] >=1){
-      checks = true
+    if (oreTwo === oreThree && props[oreTwo] >= 2 && props[oreOne] >= 1) {
+      checks = true;
     }
-    if(props[oreOne] >=1&&props[oreTwo]>=1&& props[oreThree] >= 1){
-      checks = true
+    if (props[oreOne] >= 1 && props[oreTwo] >= 1 && props[oreThree] >= 1) {
+      checks = true;
     }
-    if(checks){
-      makeItem(oreOne,oreTwo,oreThree);
+    if (checks) {
+      makeItem(oreOne, oreTwo, oreThree);
     }
   };
-  const makeItem = (oreOne, oreTwo, oreThree)=>{
+  const makeItem = (oreOne, oreTwo, oreThree) => {
     removeResource(oreOne);
     removeResource(oreTwo);
     removeResource(oreThree);
-    let weapon = lookupWeapon(oreOne,oreTwo,oreThree);
-    props.inventoryadd(weapon)
-  }
-  const removeResource = (resource)=>{
+    const weapon = lookupWeapon(oreOne, oreTwo, oreThree);
+    props.inventoryadd(weapon);
+  };
+  const removeResource = resource => {
     switch (resource) {
       case "wood":
         props.wooddecrement(1);
@@ -81,10 +85,10 @@ const Forges = props => {
         props.silverdecrement(1);
         break;
       default:
-      console.log('error')
+        console.log("error");
         break;
     }
-  }
+  };
   return (
     <div className="forge">
       Forge:
@@ -92,6 +96,7 @@ const Forges = props => {
       {materials("ore2", setOretwo)}
       {materials("ore3", setOrethree)}
       <button
+        type="button"
         onClick={() => {
           makeItemChecks(oreone, oretwo, orethree);
         }}
@@ -103,10 +108,9 @@ const Forges = props => {
   );
 };
 
-Forges.propTypes = {...decPropTypes,
-  ...resPropTypes };
+Forges.propTypes = { ...decPropTypes, ...resPropTypes };
 
 export default connect(
   mapStateToProps,
-  {...decrementers, inventoryadd  }
+  { ...decrementers, inventoryadd }
 )(Forges);
