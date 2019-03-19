@@ -2,18 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CustomerCard = props => {
-  const { name, request } = props;
+  const { nameStr, requestStr, goldValInt } = props;
   return (
     <div className="customerCard">
-      <div className="customerCardName">{name}</div>
-      <div className="customerCardName">{request}</div>
+      <div className="customerCardName">{nameStr}</div>
+      <div className="customerWeaponName">{requestStr}</div>
+      <div className="customerWeaponValue">{goldValInt}</div>
+
     </div>
   );
 };
 
 CustomerCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  request: PropTypes.string.isRequired
+  nameStr: PropTypes.string.isRequired,
+  requestStr: PropTypes.string.isRequired,
+  goldValInt: PropTypes.number.isRequired
 };
 
 export default CustomerCard;

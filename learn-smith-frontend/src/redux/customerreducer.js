@@ -10,9 +10,7 @@ const customerReducer = createReducer([], {
     // eslint-disable-next-line no-param-reassign
     state.curID += 1;
     state.list.push(toPush);
-    state.list.sort((a, b) => {
-      return a.name.localeCompare(b.name);
-    });
+    
   },
   [customerremove]: (state, action) => {
     state.filter((e, i) => {

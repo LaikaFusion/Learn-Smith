@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { weaponRecipe } from "../helpers/weaponGen";
 import { createCustomer } from "../helpers/customerGen";
+import { customeradd } from "../redux/customerreducer";
+import CustomerCard from "./CustomerCard";
+import "./Customers.css"
 
 //  https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 function useInterval(callback, delay) {
@@ -27,14 +30,15 @@ function useInterval(callback, delay) {
 }
 
 const Customers = props => {
-  const { customers, inventory } = props;
+  const { customers, inventory, customeradd } = props;
   useInterval(() => {
-    if (customers.length <= 5) {
-      console.log();
-      console.log(createCustomer(weaponRecipe()))
+    if (customers.length < 5) {
+      customeradd(createCustomer(weaponRecipe()));
     }
   }, 2000);
-  return <div className="customersRow">test</div>;
+  return <div className="customersRow">{customers.map((e)=>{
+    return <CustomerCard key={`${e.name} ${e.order.name}`} nameStr={e.name} requestStr={e.order.name} goldValInt={e.order.goldVal}/>
+  })}</div>;
 };
 
 Customers.propTypes = {
@@ -49,5 +53,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  {customeradd}
 )(Customers);
