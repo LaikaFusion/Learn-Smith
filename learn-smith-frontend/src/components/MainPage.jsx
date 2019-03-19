@@ -13,13 +13,17 @@ export default function MainPage() {
         </Card>
       </div>
       <div className="inventory">
-        <Card><Inventory/></Card>
+        <Card>
+          <Inventory />
+        </Card>
       </div>
       <div className="customers">
         <Card>Customers</Card>
       </div>
       <div className="forges">
-        <Card><Forges/></Card>
+        <Card>
+          <Forges />
+        </Card>
       </div>
     </div>
   );
