@@ -105,12 +105,9 @@ Resources.propTypes = {
   ...resPropTypes,
   switchDisplay: PropTypes.func.isRequired,
   gold: PropTypes.number.isRequired
-
 };
 
-
-
 export default connect(
- mapStateToProps,
+  mapStateToProps,
   { switchDisplay }
 )(Resources);
