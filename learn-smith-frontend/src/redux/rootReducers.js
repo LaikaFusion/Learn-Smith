@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   gold: goldReducer,
   display: displayReducer,
   inventory: inventoryReducer,
-  customer: customerReducer
+  customers: customerReducer
 });
 
 export default rootReducer;
