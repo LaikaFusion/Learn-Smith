@@ -15,8 +15,9 @@ const inventoryReducer = createReducer([], {
     });
   },
   [inventoryremove]: (state, action) => {
-    state.filter((e, i) => {
-      if (e.id === action.payload.id) {
+    console.log(state.list);
+    state.list = state.list.filter((e) => {
+      if (e.id === action.payload) {
         return false;
       }
       return true;

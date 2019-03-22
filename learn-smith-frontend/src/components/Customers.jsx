@@ -30,14 +30,15 @@ function useInterval(callback, delay) {
 }
 
 const Customers = props => {
-  const { customers, inventory, customeradd } = props;
+  const { customers, customeradd } = props;
+  console.log(customers);
   useInterval(() => {
     if (customers.length < 5) {
       customeradd(createCustomer(weaponRecipe()));
     }
   }, 2000);
   return <div className="customersRow">{customers.map((e)=>{
-    return <CustomerCard key={`${e.name} ${e.order.name}`} nameStr={e.name} requestStr={e.order.name} goldValInt={e.order.goldVal}/>
+    return <CustomerCard key={`${e.name} ${e.order.name}`} nameStr={e.name} request={e.order} goldValInt={e.order.goldVal} custID={e.id} />
   })}</div>;
 };
 

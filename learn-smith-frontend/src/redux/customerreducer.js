@@ -13,8 +13,8 @@ const customerReducer = createReducer([], {
     
   },
   [customerremove]: (state, action) => {
-    state.filter((e, i) => {
-      if (e.id === action.payload.id) {
+    state.list = state.list.filter((e) => {
+      if (e.id === action.payload) {
         return false;
       }
       return true;
