@@ -37,8 +37,8 @@ const Forges = props => {
 
   const makeItemChecks = (oreOne, oreTwo, oreThree) => {
     console.log(countdown);
-    if(countdown !== 0){
-      return
+    if (countdown !== 0) {
+      return;
     }
     let checks = false;
     if (oreOne === oreTwo && oreTwo === oreThree && props[oreOne] >= 3) {
@@ -69,13 +69,14 @@ const Forges = props => {
     removeResource(oreThree);
     const weapon = lookupWeapon(oreOne, oreTwo, oreThree);
     setCountdown(5);
-    setTimeout(()=>{addAndReset(weapon)},5000);
-    
+    setTimeout(() => {
+      addAndReset(weapon);
+    }, 5000);
   };
-  const addAndReset = (weapon) =>{
-    setCountdown(0)
-    props.inventoryadd(weapon)
-  }
+  const addAndReset = weapon => {
+    setCountdown(0);
+    props.inventoryadd(weapon);
+  };
   const removeResource = resource => {
     switch (resource) {
       case "wood":
@@ -116,7 +117,7 @@ const Forges = props => {
       >
         Make
       </button>
-        <Countdown timer={countdown} />
+      <Countdown timer={countdown} />
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { haveWeapon } from "../helpers/customerGen"
+import { haveWeapon } from "../helpers/customerGen";
 
 const CustomerCard = props => {
   const { nameStr, request, goldValInt, custID } = props;
-  const fillOrder = () =>{
-    console.log(haveWeapon(request, custID)); 
-  }
+  const fillOrder = () => {
+    console.log(haveWeapon(request, custID));
+  };
   return (
     <div className="customerCard">
       <div className="customerCardName">{nameStr}</div>

@@ -1,13 +1,13 @@
 .topBar {
   grid-area: topBar;
-  box-sizing:border-box;
+  box-sizing: border-box;
   background-color: #764035;
   color: white;
   display: flex;
   align-items: center;
   padding: 0.5em;
   font-size: 24px;
-  width:100%;
+  width: 100%;
   height: 2em;
 }
 .resources {
@@ -26,16 +26,15 @@
   width: 100%;
   box-sizing: border-box;
 }
-.inventory{
-  grid-area:inventory;
+.inventory {
+  grid-area: inventory;
 }
-.lowerPage{
+.lowerPage {
   max-width: 1200px;
   width: 100%;
   height: 92%;
   margin: 1em 0;
   box-sizing: border-box;
-
 }
 .gridContainer {
   max-width: 1200px;

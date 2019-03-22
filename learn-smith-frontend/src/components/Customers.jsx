@@ -5,7 +5,7 @@ import { weaponRecipe } from "../helpers/weaponGen";
 import { createCustomer } from "../helpers/customerGen";
 import { customeradd } from "../redux/customerreducer";
 import CustomerCard from "./CustomerCard";
-import "./Customers.css"
+import "./Customers.css";
 
 //  https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 function useInterval(callback, delay) {
@@ -37,9 +37,21 @@ const Customers = props => {
       customeradd(createCustomer(weaponRecipe()));
     }
   }, 2000);
-  return <div className="customersRow">{customers.map((e)=>{
-    return <CustomerCard key={`${e.name} ${e.order.name}`} nameStr={e.name} request={e.order} goldValInt={e.order.goldVal} custID={e.id} />
-  })}</div>;
+  return (
+    <div className="customersRow">
+      {customers.map(e => {
+        return (
+          <CustomerCard
+            key={`${e.name} ${e.order.name}`}
+            nameStr={e.name}
+            request={e.order}
+            goldValInt={e.order.goldVal}
+            custID={e.id}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 Customers.propTypes = {
@@ -54,5 +66,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {customeradd}
+  { customeradd }
 )(Customers);

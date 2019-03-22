@@ -69,7 +69,7 @@ const weaponRecipe = () => {
 
 const lookupWeapon = (oreOne, oreTwo, oreThree) => {
   const weaponObj = { name: "", recipe: [oreOne, oreTwo, oreThree] };
-  
+
   for (const key in recipes) {
     if (
       recipes[key].recipes[0] === oreTwo &&
