@@ -16,4 +16,4 @@ const forgeReducer = createReducer([], {
  
 });
 
-export { forgeReducer, forgeadd, forgeremove };
+export { forgeReducer, forgeadd };

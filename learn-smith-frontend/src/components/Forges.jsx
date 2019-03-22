@@ -1,14 +1,27 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Forge from './Forge';
+import React from "react";
+import PropTypes from "prop-types";
+import Forge from "./Forge";
+import forgeadd from "../redux/forgereducer";
 
-const Forges = props =>{
- return (
-      <div>
-        <Forge />
-      </div>
-    )
-  }
+const Forges = ({ forges }) => {
+  return (
+    <div>
+      {forges.map((e, i) => {
+        return <Forge key={e.id} />;
+      })}
+    </div>
+  );
+};
 
+Forges.propTypes = {
+  forges: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
-export default Forges
+const mapStateToProps = state => ({
+  forges: state.forges.list
+});
+
+export default connect(
+  mapStateToProps,
+  { forgeadd }
+)(Forges);
