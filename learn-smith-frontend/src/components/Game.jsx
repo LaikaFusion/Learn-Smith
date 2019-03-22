@@ -18,7 +18,9 @@ function Game(props) {
         onKeyPress={() => switchDisplay("main")}
         className="backButton"
         tabIndex="0"
-      />
+      >
+        X
+      </div>
       <div className="gameArea">{children}</div>
     </div>
   );

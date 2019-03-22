@@ -56,23 +56,26 @@ function Hex(props) {
       <Game resource={iron} resourceType="iron">
         <div className="question">What is the color of this HexCode?</div>
         <div className="letter">#{answer}</div>
-        {answerArray.map((e, i) => {
-          return (
-            <div
-              onClick={() => {
-                checkAnswer(e);
-              }}
-              onKeyPress={() => {
-                checkAnswer(e);
-              }}
-              role="button"
-              tabIndex={i + 1}
-              id={i}
-              className="hexButton"
-              style={{ backgroundColor: `#${e}` }}
-            />
-          );
-        })}
+        <div className="answerHolder">
+          {answerArray.map((e, i) => {
+            return (
+              <div
+                onClick={() => {
+                  checkAnswer(e);
+                }}
+                onKeyPress={() => {
+                  checkAnswer(e);
+                }}
+                role="button"
+                tabIndex={i + 1}
+                id={i}
+                className="hexButton"
+                style={{ backgroundColor: `#${e}` }}
+              />
+            );
+          })}
+        </div>
+
         <div className="answer">{answerDisp}</div>
       </Game>
     </Card>

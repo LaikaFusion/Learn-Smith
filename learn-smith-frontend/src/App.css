@@ -58,3 +58,6 @@
   flex-direction: column;
   align-items: center;
 }
+.resourceLine:hover{
+  font-weight:bold;
+}

@@ -17,6 +17,7 @@ const Resources = props => {
   } = props;
   return (
     <div className="resources">
+    <div className="title">Click resource to gain</div>
       <div className="resourceLine">Gold: {gold}</div>
       <div
         onClick={() => {
