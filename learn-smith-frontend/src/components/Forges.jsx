@@ -8,11 +8,13 @@ import {
 } from "../helpers/stateList";
 import { lookupWeapon } from "../helpers/weaponGen";
 import { inventoryadd } from "../redux/inventoryreducer";
+import Countdown from "./Countdown";
 
 const Forges = props => {
   const [oreone, setOreone] = useState("wood");
   const [oretwo, setOretwo] = useState("wood");
   const [orethree, setOrethree] = useState("wood");
+  const [countdown, setCountdown] = useState(0);
 
   const materials = (name, f) => {
     return (
@@ -34,6 +36,10 @@ const Forges = props => {
   };
 
   const makeItemChecks = (oreOne, oreTwo, oreThree) => {
+    console.log(countdown);
+    if(countdown !== 0){
+      return
+    }
     let checks = false;
     if (oreOne === oreTwo && oreTwo === oreThree && props[oreOne] >= 3) {
       checks = true;
@@ -62,8 +68,14 @@ const Forges = props => {
     removeResource(oreTwo);
     removeResource(oreThree);
     const weapon = lookupWeapon(oreOne, oreTwo, oreThree);
-    props.inventoryadd(weapon);
+    setCountdown(5)
+    setTimeout(()=>{addAndReset(weapon)},5000)
+    
   };
+  const addAndReset = (weapon) =>{
+    setCountdown(0)
+    props.inventoryadd(weapon)
+  }
   const removeResource = resource => {
     switch (resource) {
       case "wood":
@@ -104,6 +116,7 @@ const Forges = props => {
       >
         Make
       </button>
+        <Countdown timer={countdown} />
     </div>
   );
 };
