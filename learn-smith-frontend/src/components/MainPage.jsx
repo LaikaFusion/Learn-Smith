@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import Resources from "./Resources";
 import Inventory from "./Inventory";
-import Forges from "./Forges";
+import Forges from "./Forge";
 import Customers from "./Customers";
 
 export default function MainPage() {

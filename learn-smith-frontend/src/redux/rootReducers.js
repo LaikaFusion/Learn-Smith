@@ -12,6 +12,7 @@ import { goldReducer } from "./resourceIncrimentors/goldreducer";
 import { displayReducer } from "./displayreducer";
 import { inventoryReducer } from "./inventoryreducer";
 import { customerReducer } from "./customerreducer";
+import {forgeReducer} from "./forgereducer";
 
 const rootReducer = combineReducers({
   counter: counterReducer,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   gold: goldReducer,
   display: displayReducer,
   inventory: inventoryReducer,
-  customers: customerReducer
+  customers: customerReducer,
+  forges: forgeReducer
 });
 
 export default rootReducer;
