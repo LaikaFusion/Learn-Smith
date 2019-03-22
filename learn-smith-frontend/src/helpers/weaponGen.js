@@ -75,11 +75,13 @@ const lookupWeapon = (oreOne, oreTwo, oreThree) => {
       recipes[key].recipes[0] === oreTwo &&
       recipes[key].recipes[1] === oreThree
     ) {
-      console.log(key);
+      console.log(key, recipes[key].recipes[0],  recipes[key].recipes[1], oreTwo, oreThree);
       weaponObj.name = `${jsUcfirst(oreOne)} ${recipes[key].name}`;
+      return weaponObj;
     }
   }
-  return weaponObj;
+  
+  return false;
 };
 
 export { ingridents, weaponRecipe, lookupWeapon };
